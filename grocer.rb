@@ -62,12 +62,25 @@ if cart_item && cart_item[:count] >= coupons[counter][:num]
     cart
   end
 def apply_clearance(cart)
+
+  index = 0
+ while index < cart.length do
+   item = cart[index]
+   if item[:clearance]
+     item[:price] -= (item[:price] * 0.2)
+     item[:price].round(2)
+   end
+   index += 1
+ end
+ cart
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
 end
 
 def checkout(cart, coupons)
+
+
   # Consult README for inputs and outputs
   #
   # This method should call
